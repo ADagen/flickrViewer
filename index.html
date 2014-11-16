@@ -1,36 +1,13 @@
 <!DOCTYPE html5>
 <html>
 <head>
-    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.1.2.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script data-main="index" src="vendor/require.2.1.15.min.js"></script>
     <script>
         window.jsonFlickrFeed = function(response) {
             console.log('>>> response', response);
             window.response = response;
         };
-
-        $(document).ready(function() {
-            var $body = $('body'),
-                template = Handlebars.compile($('#itemtemplate').html());
-            console.log(response);
-            window.response && window.response.items.forEach(function(item) {
-                console.log(template, item, template(item));
-                $body.append(template(item));
-            });
-        });
-
     </script>
     <script src=https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=andromeda></script>
-    <script id=itemtemplate type="handlebars/template">
-        <div>
-            <div>
-                <img src={{media.m}}>
-            </div>
-            <div>
-                <span>{{published}}</span>
-                <span>{{author}}</span>
-            </div>
-        </div>
-    </script>
 </head>
 <body>
