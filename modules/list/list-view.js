@@ -6,11 +6,11 @@
 define([
 	'backbone',
 	'handlebars',
-	'text!templates/item.hbs'
+	'text!templates/list.hbs'
 ], function(
 	Backbone,
 	Handlebars,
-	itemSource
+	templateSource
 ) {
 	'use strict';
 	var
@@ -33,7 +33,7 @@ define([
 		 * @name ListView.template
 		 * @type {Function}
 		 */
-		template: Handlebars.compile(itemSource),
+		template: Handlebars.compile(templateSource),
 
 		/**
 		 * @method
@@ -43,7 +43,12 @@ define([
 		 * @returns {undefined}
 		 */
 		initialize: function(options) {
+			_.bindAll(
+				this,
+				'render'
+			);
 
+			this.listenTo(this.model, 'change', this.render);
 		},
 
 		/**
@@ -52,13 +57,8 @@ define([
 		 * @returns {undefined}
 		 */
 		render: function() {
-			// https://www.flickr.com/services/api/misc.urls.html
-			$(function() {
-				var $body = $('body');
-				window.response && window.response.items.forEach(function(item) {
-					$body.append(this.template(item));
-				}.bind(this));
-			}.bind(this));
+			var data = this.model.toJSON();
+			this.$el.html(this.template(data));
 		}
 
 	};

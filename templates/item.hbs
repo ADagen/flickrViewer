@@ -1,9 +1,10 @@
-<div>
-    <div>
-        <img src={{media.m}}>
+<div class="item">
+    <div class="item__icon">
+        <img src={{thumbnail}}>
     </div>
-    <div>
-        <span>{{published}}</span>
-        <span>{{author}}</span>
+    <div class="item__about">
+        <div>Author: <strong>{{authorNick}}</strong></div>
+        <div>Date taken: <strong>{{formatTaken}}</strong></div>
+        <div>Date published: <strong>{{formatPublished}}</strong></div>
     </div>
 </div>

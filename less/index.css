@@ -1,0 +1,82 @@
+#list {
+    margin-top: 70px;
+}
+
+.item {
+    width: 100%;
+    display: inline-block;
+    margin: 5px 0;
+    transition: background-color 200ms ease, box-shadow 200ms ease;
+    background-color: transparent;
+    box-shadow: none;
+}
+.item:hover {
+    background-color: #EEE;
+    box-shadow: 0 0 5px 5px #EEE;
+}
+.item:active {
+    background-color: #DDD;
+    box-shadow: 0 0 5px 5px #DDD;
+}
+
+.item__icon {
+    width: 100px;
+    min-height: 60px;
+    margin-right: 15px;
+    float: left;
+}
+.item__icon > img {
+    display: block;
+    margin: 0 auto;
+}
+
+.item__about {
+
+}
+
+
+
+#panel {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px 10px white;
+}
+
+.sort {
+    color: #09c;
+    cursor: pointer;
+    border-bottom: 1px dashed #09c;
+    transition: color 200ms ease;
+}
+.sort:hover {
+    color: #048;
+    border-bottom: 1px dashed #048;
+}
+.sort:active {
+    color: black;
+    border-bottom: 1px dashed black;
+}
+
+.tag {
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 4px 10px;
+    background-color: #0c9;
+    color: white;
+    box-shadow: none;
+    transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+.tag:hover {
+    background-color: #071;
+    color: white;
+    box-shadow: 0 0 1px 1px #071;
+}
+.tag:active {
+    background-color: #041;
+    color: white;
+    box-shadow: 0 0 2px 2px #041;
+}

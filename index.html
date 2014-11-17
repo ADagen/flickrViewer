@@ -1,13 +1,10 @@
 <!DOCTYPE html5>
 <html>
 <head>
+    <link href="less/index.css" rel="stylesheet" type="text/css">
     <script data-main="index" src="vendor/require.2.1.15.min.js"></script>
-    <script>
-        window.jsonFlickrFeed = function(response) {
-            console.log('>>> response', response);
-            window.response = response;
-        };
-    </script>
-    <script src=https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=andromeda></script>
 </head>
 <body>
+    <div id="panel"></div>
+    <div id="list"></div>
+</body>
