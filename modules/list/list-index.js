@@ -6,13 +6,17 @@
 define([
 	'underscore',
 	'backbone',
+	'handlebars',
 	'./list-view',
-	'./list-model'
+	'./list-model',
+	'text!templates/item.hbs'
 ], function(
 	_,
     Backbone,
+    Handlebars,
     ListView,
-    ListModel
+    ListModel,
+    itemPartial
 ) {
 	'use strict';
 
@@ -25,8 +29,8 @@ define([
 		ListIndex,
 		indexInterface;
 
-	ListIndex = function() {
-		this.initialize();
+	ListIndex = function(options) {
+		this.initialize(options);
 	};
 
 	/**
@@ -60,11 +64,20 @@ define([
 		 * @method
 		 * @constructs ListIndex
 		 * @name ListIndex.initialize
+		 * @param {Object} options
+		 *      @param {string} options.el
 		 * @returns {undefined}
 		 */
-		initialize: function() {
-			this.view = new this.viewConstructor();
+		initialize: function(options) {
+			Handlebars.registerPartial('item', itemPartial);
+
+			this.model = new this.modelConstructor();
+			this.view = new this.viewConstructor({
+				model: this.model,
+				el   : options.el
+			});
 			this.view.render();
+			this.model.fetch();
 		}
 
 	};

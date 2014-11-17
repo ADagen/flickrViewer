@@ -24,9 +24,16 @@ requirejs.config({
 });
 
 requirejs([
-	'modules/list-index'
+	'modules/list/list-index',
+	'modules/panel/panel-index'
 ], function(
-    ListIndex
+    ListIndex,
+    PanelIndex
 ) {
-	new ListIndex();
+	new ListIndex({
+		el: '#list'
+	});
+	new PanelIndex({
+		el: '#panel'
+	});
 });
