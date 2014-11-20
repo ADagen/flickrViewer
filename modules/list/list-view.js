@@ -4,10 +4,13 @@
  * @module ListView
  */
 define([
+	'jquery',
 	'backbone',
 	'handlebars',
-	'text!templates/list.hbs'
+	'text!templates/list.hbs',
+	'fancybox'
 ], function(
+	$,
 	Backbone,
 	Handlebars,
 	templateSource
@@ -59,6 +62,13 @@ define([
 		render: function() {
 			var data = this.model.toJSON();
 			this.$el.html(this.template(data));
+			this.$el.find('.item__icon>a').fancybox({
+				'titlePosition'		: 'outside',
+				'overlayColor'		: '#000',
+				'overlayOpacity'	: 0.9,
+				'transitionIn'	    : 'elastic',
+				'transitionOut'	    : 'elastic'
+			});
 		}
 
 	};
