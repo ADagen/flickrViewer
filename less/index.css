@@ -2,6 +2,11 @@
     margin-top: 70px;
 }
 
+#fancybox-wrap {
+    position: fixed;
+    top: 10% !important;
+}
+
 .item {
     width: 100%;
     display: inline-block;
@@ -25,7 +30,11 @@
     margin-right: 15px;
     float: left;
 }
-.item__icon > img {
+.item__icon > a {
+    width: 100px;
+    display: block;
+}
+.item__icon img {
     display: block;
     margin: 0 auto;
 }
@@ -33,6 +42,7 @@
 .item__about {
 
 }
+
 
 
 
@@ -45,21 +55,83 @@
     background-color: white;
     box-shadow: 0 0 10px 10px white;
 }
+#panel input {
+    width: 300px;
+}
 
 .sort {
     color: #09c;
     cursor: pointer;
-    border-bottom: 1px dashed #09c;
-    transition: color 200ms ease;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: #09c;
+    transition: color 200ms ease, border-bottom-color 200ms ease;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .sort:hover {
     color: #048;
-    border-bottom: 1px dashed #048;
+    border-bottom-color: #048;
 }
 .sort:active {
     color: black;
-    border-bottom: 1px dashed black;
+    border-bottom-color: black;
 }
+.sort.sort-active {
+    border-bottom-style: solid;
+}
+.sort > .ascending {
+    transition: border-color 200ms ease;
+    border: 5px solid transparent;
+    height: 0;
+    width: 0;
+    display: inline-block;
+    border-bottom: 7px solid #09c;
+}
+.sort > .descending {
+    transition: border-color 200ms ease;
+    border: 5px solid transparent;
+    height: 0;
+    width: 0;
+    display: inline-block;
+    border-top: 7px solid #09c;
+    position: relative;
+    top: 5px;
+}
+.sort:hover > .ascending {
+    border: 5px solid transparent;
+    height: 0;
+    width: 0;
+    display: inline-block;
+    border-bottom: 7px solid #048;
+}
+.sort:hover > .descending {
+    border: 5px solid transparent;
+    height: 0;
+    width: 0;
+    display: inline-block;
+    border-top: 7px solid #048;
+}
+.sort:active > .ascending {
+    border: 5px solid transparent;
+    height: 0;
+    width: 0;
+    display: inline-block;
+    border-bottom: 7px solid black;
+}
+.sort:active > .descending {
+    border: 5px solid transparent;
+    height: 0;
+    width: 0;
+    display: inline-block;
+    border-top: 7px solid black;
+}
+
+
+
 
 .tag {
     cursor: pointer;
@@ -69,6 +141,11 @@
     color: white;
     box-shadow: none;
     transition: background-color 200ms ease, box-shadow 200ms ease;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .tag:hover {
     background-color: #071;
